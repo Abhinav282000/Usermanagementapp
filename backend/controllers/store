@@ -1,0 +1,133 @@
+// const _DocumentMetadata = require("../models/Documentdata.js");
+// const fs=require('fs');//built-in module to interact with files
+// const path=require('path');
+// const { findByIdAndUpdate } = require("../models/Useragain.js");
+// const uploaduserdocuments= async (req, res) => {
+//     try {
+      
+//       const file = req.file;
+//      const {description}=req.body;
+//      const type=req.file.mimetype;
+//      const size=req.file.size;
+//     const fileurl=req.file.path;
+//     console.log("fileurl",fileurl);
+//       // if (!file || !name || !age) {
+//       //   return res.status(400).json({ message: 'Missing file or text fields' });
+//       // }
+  
+//       const newUserDocumentsData = new _DocumentMetadata({
+//         description:description,
+//         type:type,
+//         size:size,
+//     fileurl:fileurl
+//       });
+  
+//       await newUserDocumentsData.save();
+//       console.log(newUserDocumentsData);
+//       res.status(200).json({ success: 'User data saved successfully', file });
+//     } catch (err) {
+//       console.error('Error:', err.message);
+//       res.status(500).json({ message: 'An error occurred' });
+//     }
+//   };
+
+
+// //Delete user documents
+
+//   const deleteUserDocuments=async(req,res)=>{
+// try{
+// const {id}=req.query;
+// // console.log(req);
+// console.log('id', id);
+// const file=await _DocumentMetadata.findById({_id:id});
+// console.log(file);
+// const fileurl=file.fileurl;
+// console.log(fileurl);
+// if(!file){
+//     console.log(file);
+//     console.log("file not deleted");
+// }
+// filePath=path.join(__dirname,"./",fileurl);
+// console.log(filePath);
+// fs.access(filePath, fs.constants.F_OK, (err) => {
+//     if (err) {
+//         console.error('File does not exist:', err);
+//     } else {
+//         console.log('File exists, ready to delete');
+//         fs.unlink(filePath, (err) => {
+//             if (err) {
+//                 console.error('Error deleting file:', err);
+//             } else {
+//                 console.log('File deleted successfully');
+//             }
+//         });
+//     }
+// });                                                      
+// await _DocumentMetadata.findByIdAndDelete(id)
+// .then(()=>{res.status(200).send('File successfully removed')})
+// .catch(err=>res.status(500).send('Database error:',err))
+// }catch(error){
+//     console.log(error);
+//     res.status(500).send(error.message)
+// }
+//   }
+  
+//   //Updating user documents data
+  
+  
+//   const upDateUserDocumentsByUserId=async(req,res)=>{
+    
+
+//       const _id=req.body.id;
+   
+//    const file=req?.file;
+//    const type=req.file.mimetype;
+//    const size=req.file.size;
+//    const fileurl=req.file.path;
+//    const description=req.body.description;
+//     try{
+
+//   const DocumentToBeUpdated=await _DocumentMetadata.findById(_id)
+//   res.status(200).send(DocumentUpdated);
+//   console.log(DocumentUpdated);
+//   filePath=path.join(__dirname,"./",fileurl);
+// console.log(filePath);
+// fs.access(filePath, fs.constants.F_OK, (err) => {
+//     if (err) {
+//         console.error('File does not exist:', err);
+//     } else {
+//         console.log('File exists, ready to delete');
+//         fs.unlink(filePath, (err) => {
+//             if (err) {
+//                 console.error('Error deleting file:', err);
+//             } else {
+//                 console.log('File deleted successfully');
+//             }
+//         });
+//     }
+// }); 
+// await _DocumentMetadata.findByIdAndUpdate(id,
+  
+// )
+// .then(()=>{res.status(200).send('File successfully removed')})
+// .catch(err=>res.status(500).send('Database error:',err))
+// }
+// catch(error){
+//       console.log(error);
+// res.status(500).send(error);
+//     }
+//   }
+//   const DocumentGet=async(req,res)=>{
+//     const _id=req.body.id;
+//     try{
+// const DocumentData=await _DocumentMetadata.findOne(_id);
+
+// console.log(DocumentData);
+// res.status(200).send(DocumentData);
+//     }catch(error){
+//       console.log(error)
+//       res.status(500).send(error)
+//     }
+//   }
+
+//   module.exports={uploaduserdocuments,deleteUserDocuments,upDateUserDocumentsByUserId,DocumentGet};
